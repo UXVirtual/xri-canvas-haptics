@@ -1,50 +1,121 @@
-[![npm package](https://img.shields.io/npm/v/com.3d-group.unity-package-template)](https://www.npmjs.com/package/com.3d-group.unity-package-template)
+[![npm package](https://img.shields.io/npm/v/com.uxvirtual.xri-canvas-haptics)](https://www.npmjs.com/package/com.uxvirtual.xri-canvas-haptics)
+[![openupm](https://img.shields.io/npm/v/com.uxvirtual.xri-canvas-haptics?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.uxvirtual.xri-canvas-haptics/)
+![Tests](https://github.com/uxvirtual/xri-canvas-haptics/workflows/Tests/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-# Unity package template
+# XRI Canvas Haptics
 
-This is a template repository for creating new repositories for upm (Unity Package Manager) packages.
+Package for Unity XR Interaction Toolkit v3.x which enables haptics actuation for Unity canvas IPointer UI events via the SimpleHapticFeedback script.
 
-Generated repository will contain:
-- Basis for [Unity package](https://docs.unity3d.com/Manual/CustomPackages.html) (package.json, folder structure, assembly definitions etc.)
-- Basis for Runtime & Editor tests (can be run straight away after script has ran and package is in some Unity projects assets folder / marked as testable)
-- Sample/ExampleUnityProject - empty Unity project for running automated github tests via [unity-ci](https://unity-ci.com/docs)
-  - **Note:** Better way for doing this would be appreciated, there is an [issue about this in unity-test-runner](https://github.com/webbertakken/unity-test-runner/issues/71)
-- package.json to publish into npm
-- Automated github action workflows to run tests on push (further documentation can be found in templates/.github/workflows)
-- Automated github action [workflow to publish into npmjs](templates/.github/workflows/on-release.yml) on publish release
-  - **Note:** If your package contains a lot of images/data or size exceeds 10mbs it might better to just publish into upm package manager / other service that is meant for storing assets and other big data. It is a good practice to check npm registry guidelines before usage.
-- Example [package.json](templates/package.json) 
-- Example [README.md](templates/README.md)
-- Example [CONTRIBUTING.md](templates/CONTRIBUTING.md), based on [Contributor Covenant](https://www.contributor-covenant.org)
-- Example [License](templates/License) (MIT)
-- Example [CODEOWNERS](templates/.github/CODEOWNERS), for further details please see [github docs on CODEOWNERS](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-code-owners)
+- [How to use](#how-to-use)
+- [Install](#install)
+  - [via npm](#via-npm)
+  - [via OpenUPM](#via-openupm)
+  - [via Git URL](#via-git-url)
+  - [Tests](#tests)
+- [Configuration](#configuration)
 
-**Note:** By default this repository is meant for creating open source packages. If creating closed source it might be a good idea to change license and go through generated package.json files etc.
+<!-- toc -->
 
-## Usage
+## How to use
 
-1. Create a new repository using this template
-2. Clone the new repository
-3. Run RUNME.sh (cautiously!) with bash at new repository root folder and follow instructions, if using windows [Git for Windows](https://gitforwindows.org/) provides bash and all necessary tools.
-4. Move all files (except folders .git/ .github/ and Samples/) inside any Unity Project Assets folder. This will generate .meta files that are required by Unity. 
-5. Move files back to the original folder
+## Install
 
-**Notes:**
-- RUNME.sh just helps replacing all tags etc. `{{REPOSITORY_NAME}}` or `{{DESCRIPTION}}` from files, if not familiar with bash scripts this step should be done manually 
-- Brief introduction on how to develop your Unity package is included in CONTRIBUTING.md
+The best way to install the package is via the Unity Package Manager using the Git URL.
 
-For further details, please see
- - [Github docs on creating repository from template](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
- - [Unity docs on creating custom packages.](https://docs.unity3d.com/Manual/CustomPackages.html)
+### via Git URL
 
-When your package is ready for publish, you can publish it into:
-- Open Source Unity Package Registry [openupm](https://openupm.com/)
-- [npmjs](https://docs.npmjs.com/cli/publish) package registry
-  - **Note:** If your package contains a lot of images/data or size exceeds 10mbs it might not be a good idea.
+Open `Packages/manifest.json` with your favorite text editor. Add following line to the dependencies block:
+```json
+{
+  "dependencies": {
+    "com.uxvirtual.xri-canvas-haptics": "https://github.com/uxvirtual/xri-canvas-haptics.git?path=/com.uxvirtual.xri-canvas-haptics"
+  }
+}
+```
+
+### via npm
+
+Open `Packages/manifest.json` with your favorite text editor. Add a [scoped registry](https://docs.unity3d.com/Manual/upm-scoped.html) and following line to dependencies block:
+```json
+{
+  "scopedRegistries": [
+    {
+      "name": "npmjs",
+      "url": "https://registry.npmjs.org/",
+      "scopes": [
+        "com.uxvirtual"
+      ]
+    }
+  ],
+  "dependencies": {
+    "com.uxvirtual.xri-canvas-haptics": "1.0.0"
+  }
+}
+```
+Package should now appear in package manager.
+
+### via OpenUPM
+
+The package is also available on the [openupm registry](https://openupm.com/packages/com.uxvirtual.xri-canvas-haptics). You can install it eg. via [openupm-cli](https://github.com/openupm/openupm-cli).
+
+```
+openupm add com.uxvirtual.xri-canvas-haptics
+```
+
+## Configuration
+
+### Scene Setup
+
+You can open a preconfigured Unity 6 project from `Samples/XRICanvasHapticsTester`, otherwise try the following:
+
+#### Sample Project - Import Haptics Starter Sample Into Existing Unity Project
+1. Import *XR Interaction Toolkit v3.x* and all required dependencies.
+2. Import the *Starter Assets* sample from the *XR Interaction Toolkit* package.
+3. Import the *Haptics Starter* sample from the *XRI Canvas Haptics* package.
+
+#### New Projects - Add XR Interaction Toolkit XR Rig
+1. Import *XR Interaction Toolkit v3.x* and all required dependencies.
+2. Import the *Starter Assets* sample from the XR Interaction Toolkit package.
+3. Create a new Unity scene.
+4. Add the XR Origin (XR Rig) prefab from the *Starter Assets* sample to your scene.
+
+##### Add XRI Canvas Haptics Scripts
+1. Add the *Manual Haptics Manager* script from the *XRI Canvas Haptics* package to the XR Rig.
+2. Add the *Canvas Haptic Manager* script to each canvas that you wish to activate haptic interaction on. This canvas should contain UI elements such Buttons, Sliders, Input fields etc as its children. This will search down multiple levels to find all descendents.
+3. Set the Button Container reference in the *Canvas Haptic Manager* script to a GameObject that contains Buttons anywhere in its heirarchy.
+4. Set the *Manual Haptics Manager* reference to the script that was placed on your XR Rig. If you don't set this or your XR Rig is instantiated later, you will need to update this reference on each Canvas UI that has *Canvas Haptic Manager* attached.
+5. Create a new GameObject called `Event System` and add *Event System* and *XR UI Input Module* components to it. This is required for the *UI Element Haptic Helper* to hook into the Event System when interactors select or hover over Buttons in UI Canvases.
+6. (optional) Manually add *UI Element Haptic Helper* script to any Buttons, Sliders, Input fields for fine control over which child UI element GameObjects will activate haptics. This should work with any UI element that implements `IPointerEnterHandler`, `IPointerExitHandler`, `IPointerDownHandler` and `IPointerUpHandler`.
+
+##### Add Hand Tracking Support
+1. (optional) Add and configure an additional *SimpleHapticFeedback* script to the Near-Far and Poke interactors on the *Left* and *Right Hand* GameObjects in the *Hands Interaction Demo* sample from the *Unity XR Interaction Toolkit*.
+
+### Usage
+
+1. Start SteamVR and/or connect your XR headset to another OpenXR runtime.
+2. Test the scene by starting Play Mode in the Unity Editor, the buttons should have a *Key Haptics Helper* script added to them. This observes any interactions with the Button UI element and triggers haptic effects on the current Near-Far or Poke interactors that have a *SimpleHapticFeedback* script added to the interactor.
+
+## Contributors
+
+See [CONTRIBUTING.md](https://github.com/UXVirtual/xri-canvas-haptics/blob/main/CONTRIBUTING.md) for a guide on how to contribute fixes or features back to this project.
+
+### Tests
+
+The package can optionally be set as *testable*.
+In practice this means that tests in the package will be visible in the [Unity Test Runner](https://docs.unity3d.com/2017.4/Documentation/Manual/testing-editortestsrunner.html).
+
+Open `Packages/manifest.json` with your favorite text editor. Add following line **after** the dependencies block:
+```json
+{
+  "dependencies": {
+  },
+  "testables": [ "com.uxvirtual.xri-canvas-haptics" ]
+}
+```
 
 ## License
 
 MIT License
 
-Copyright © 2020 3D Group
+Copyright © 2025 UXVirtual

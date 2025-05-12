@@ -1,0 +1,41 @@
+{
+  "name": "com.uxvirtual.xri-canvas-haptics",
+  "displayName": "XRI Canvas Haptics",
+  "version": "1.0.0",
+  "description": "Package for Unity XR Interaction Toolkit v3.x which enables haptics actuation for Unity canvas IPointer UI events via the SimpleHapticFeedback script.",
+  "unity": "6000.0",
+  "unityRelease": "47f1",
+  "samples": [
+    {
+      "displayName": "Haptics Starter",
+      "description": "Demonstrates usage of the package with Unity XRI starter assets. Requires the XR Interaction Toolkit 3.x Starter Assets sample to be imported into the project.",
+      "path": "Samples~/Haptics Starter",
+      "interactiveImport": true
+    }
+  ],
+  "keywords": [
+    "unity",
+	  "unity3d",
+	  "upm",
+    "uxvirtual",
+    "utility",
+    "haptics",
+    "xri"
+  ],
+  "documentationUrl": "https://github.com/uxvirtual/xri-canvas-haptics/",
+  "changelogUrl": "https://github.com/uxvirtual/xri-canvas-haptics/releases",
+  "licensesUrl": "https://github.com/uxvirtual/xri-canvas-haptics/LICENSE",
+  "homepage": "https://github.com/uxvirtual/xri-canvas-haptics.git",
+  "bugs": {
+    "url": "https://github.com/uxvirtual/xri-canvas-haptics/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/uxvirtual/xri-canvas-haptics.git"
+  },
+  "license": "MIT",
+  "author": "UXVirtual (https://uxvirtual.com)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

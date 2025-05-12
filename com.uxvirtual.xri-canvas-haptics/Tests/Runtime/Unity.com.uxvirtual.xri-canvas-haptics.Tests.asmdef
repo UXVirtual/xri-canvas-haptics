@@ -1,0 +1,11 @@
+{
+  "name": "Unity.com.uxvirtual.xri-canvas-haptics.Tests",
+  "references": [
+    "Unity.com.uxvirtual.xri-canvas-haptics"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": []
+}
