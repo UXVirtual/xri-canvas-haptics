@@ -9,11 +9,14 @@ Package for Unity XR Interaction Toolkit v3.x which enables haptics actuation fo
 
 - [How to use](#how-to-use)
 - [Install](#install)
+  - [via Git URL](#via-git-url)
   - [via npm](#via-npm)
   - [via OpenUPM](#via-openupm)
-  - [via Git URL](#via-git-url)
   - [Tests](#tests)
 - [Configuration](#configuration)
+  - [Scene Setup](#scene-setup)
+  - [Usage](#usage)
+- [Contributors](#contributors)
 
 <!-- toc -->
 

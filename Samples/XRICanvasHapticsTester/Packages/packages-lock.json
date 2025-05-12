@@ -458,10 +458,11 @@
       "url": "https://packages.unity.com"
     },
     "com.uxvirtual.xri-canvas-haptics": {
-      "version": "file:C:/Users/hazar/code/xri-canvas-haptics/com.uxvirtual.xri-canvas-haptics",
+      "version": "https://github.com/uxvirtual/xri-canvas-haptics.git?path=/com.uxvirtual.xri-canvas-haptics",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "b40a579b2db2b83a9f29fbfd1881b88d2e63e68f"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
