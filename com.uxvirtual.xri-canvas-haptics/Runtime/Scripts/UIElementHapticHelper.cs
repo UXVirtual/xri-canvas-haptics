@@ -83,6 +83,9 @@ namespace UXVirtual.XRI.Haptics
             }
             else
             {
+                // Disable warning if OpenXR disabled to avoid spam in logs
+                if(!OpenXRRuntimeChecker.IsXRLoaderActive())
+                    return;
                 Debug.LogWarning($"OnPointerEnter on {gameObject.name}: Could not get IXRInteractor for pointerId {eventData.pointerId}", this);
             }
         }
@@ -126,6 +129,9 @@ namespace UXVirtual.XRI.Haptics
             }
             else
             {
+                // Disable warning if OpenXR disabled to avoid spam in logs
+                if(!OpenXRRuntimeChecker.IsXRLoaderActive())
+                    return;
                 Debug.LogWarning($"OnPointerDown on {gameObject.name}: Could not get IXRInteractor for pointerId {eventData.pointerId} to trigger haptics.", this);
             }
         }
@@ -148,6 +154,9 @@ namespace UXVirtual.XRI.Haptics
             }
             else
             {
+                // Disable warning if OpenXR disabled to avoid spam in logs
+                if(!OpenXRRuntimeChecker.IsXRLoaderActive())
+                    return;
                 Debug.LogWarning($"OnPointerUp on {gameObject.name}: Could not get IXRInteractor for pointerId {eventData.pointerId} to trigger haptics.", this);
             }
         }
