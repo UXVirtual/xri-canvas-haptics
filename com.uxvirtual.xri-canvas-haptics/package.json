@@ -1,10 +1,10 @@
 {
   "name": "com.uxvirtual.xri-canvas-haptics",
   "displayName": "XRI Canvas Haptics",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Package for Unity XR Interaction Toolkit v3.x which enables haptics actuation for Unity canvas IPointer UI events via the SimpleHapticFeedback script.",
   "unity": "6000.0",
-  "unityRelease": "49f1",
+  "unityRelease": "47f1",
   "samples": [
     {
       "displayName": "Haptics Starter",
